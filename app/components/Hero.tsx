@@ -48,25 +48,28 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.45 }}
           transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
-          className="hidden md:flex shrink-0 self-stretch pointer-events-none select-none overflow-hidden"
+          className="hidden md:flex shrink-0 self-stretch pointer-events-none select-none"
           style={{
             width: "550px",
-            backgroundColor: "#F9F9F9",
-            boxShadow: "inset 0 2px 12px rgba(0,0,0,0.06)",
+            boxShadow:
+              "0 0 60px 25px rgba(180, 160, 210, 0.35), 0 12px 48px rgba(160, 130, 200, 0.30)",
           }}
         >
-          <Image
-            src="/student-drawing.jpg"
-            alt="Student illustration"
-            width={550}
-            height={800}
-            className="w-full h-full object-cover object-top"
-            style={{
-              mixBlendMode: "multiply",
-              filter: "contrast(1.8) brightness(0.88) saturate(0.7)",
-            }}
-            priority
-          />
+          {/* Inner wrapper clips the image without cutting the outer shadow */}
+          <div className="w-full h-full overflow-hidden" style={{ backgroundColor: "#F9F9F9" }}>
+            <Image
+              src="/student-drawing.jpg"
+              alt="Student illustration"
+              width={550}
+              height={800}
+              className="w-full h-full object-cover object-top"
+              style={{
+                mixBlendMode: "multiply",
+                filter: "contrast(1.8) brightness(0.88) saturate(0.7)",
+              }}
+              priority
+            />
+          </div>
         </motion.div>
 
       </div>
